@@ -2,7 +2,7 @@
 layout: post
 title: Spurious correlation, unit roots and cointegration
 date: '2016-03-01T10:01:51-05:00'
-tags: []
+tags: [time-series]
 tumblr_url: https://ericjanofsky.com/post/140274499707/spurious-correlation-unit-roots-and-cointegration
 ---
 <p>I learned about the spurious regression problem during a course at the <a href="https://www.chicagobooth.edu/">Booth school of business</a>. It’s well known among econometricians because it is in the classic text by Hamilton but I don’t think it’s known more widely.</p><p>A first-order measure of association between two variables \(x,y\) is their correlation. Equivalently, we can fit a univariate linear regression to the data:</p><p>\[ y = \alpha + \beta x \]</p><p>If we have \(N\) observations that are independent, given a couple mild assumptions, we get a CLT:<br/></p><p>\[ \sqrt{N}(\hat{\beta}-\beta) \rightarrow N(0,\sigma_{y\mid x}^2/\sigma_x^2), \]</p><p>where \(\sigma_x^2 = \text{var}( x)\) and \(\sigma_{y\mid x}^2 = \text{var}( y-\alpha-\beta x)\).</p><p>We can test for association (\(\beta \not = 0\)) using a standard F-test.</p><p>The independent observation assumption is crucial. Without it, you can get very surprising and unusual behavior.</p><p>Consider observations of pairs \(x_t,y_t\), which are generated from random walks:</p><p>
