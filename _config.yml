@@ -29,7 +29,7 @@ theme: minima
 #theme: jekyll-theme-minimal
 repository: geb5101h/geb5101h.github.io
 github: [metadata]
-google_analytics: UA-156807701-1
+google_analytics: UA-156801543-1
 markdown: kramdown
 mathjax: true
 
