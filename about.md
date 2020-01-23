@@ -4,7 +4,7 @@ title: About
 ---
 # About page
 
-My name is Eric Janofsky. I am an industry data scientist who focuses on building data-driven products and systems for machine intelligence and decision-making. Currently I work at Uber in New York City. I was a student at the University of Chicago, where I studied statistical machine learning and got a Ph.D. from the [Department of Statistics](galton.uchicago.edu).
+My name is Eric Janofsky. I am an industry data scientist who focuses on building data-driven products and systems for machine intelligence and decision-making. Currently I work at Uber in New York City. I was a student at the University of Chicago, where I studied statistical machine learning and got a Ph.D. from the <a href="galton.uchicago.edu">Department of Statistics</a>.
 
 I use this blog as a way to keep notes on various data science related things I come across, particularly concepts that are obscure or under-appreciated or novel ideas I've thought up.
 
