@@ -2,6 +2,85 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD:_site/2016/01/25/the-kernel-density-estimator-minimizes-the/index.html
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>The kernel density estimator minimizes the regularized Tsallis score</title>
+  <meta name="description" content="The kernel density estimator (KDE) is a simple and popular tool for nonparametric density estimation. In one-dimension it is given by\[ \hat{p}_{KDE}(x) = \frac{1}{Nh} \sum_{i=1}^NK\left(\frac{x-X_i}{h}\right). \]\(K\) is a kernel (let’s say a variance 1 density for simplicity). It has a simple closed form, and there is extensive literature on theoretical justifications for KDE. One conceptual difficulty with KDE is that it is not represented as a solution to an optimization problem. Most statistics and ML algorithms, from PCA to SVM to k-means are either formulated as an optimization or may be alternatively formulated as the solution to one. For me, this gives me better intuition, and often provides a decision-theoretic justification for the problem. For example, the popular ML algorithm AdaBoost, the first boosting algorithm, benefited from new insights and extensions when it was discovered that it is essentially a greedy algorithm for optimizing the exponential classification loss.A few years ago I came across the paper What do Kernel Density Estimators Optimize? by Koenker et al. It has some interesting connections between the heat equation and KDEs, but the theorem I find most interesting is the following:Theorem 1: Let \(E_n[\cdot]\) denote the expectation operator with respect to the empirical distribution of a sample \(X_1,\ldots,X_N\). The solution to\[\min_f \left\{ -\mathbb{E}_n[f(x,\lambda)]+ \frac{1}{2} \intop f(x,\lambda)^2 dx +\frac{\lambda}{2} \intop \left(\frac{\partial f(x,\lambda)}{\partial x}\right)^2 dx \right\}\]is given by\[ \hat{p}(x) = \frac{1}{2\sqrt{\lambda n}} \sum_{i=1}^N \exp \{ -\mid x-X_i \mid /\sqrt{\lambda} \}. \]This is precisely the KDE with a Laplace kernel. In section 4 of the paper, the authors show that by changing the third term in the optimization to a different penalty, the solution is a KDE with a different choice of kernel. Like with other kernel methods such as kernel SVM , each kernel corresponds to a norm in a reproducing kernel Hilbert space. Changing the penalty term to that particular norm will result in a kernel estimator with the corresponding kernel for that RKHS. For example, we could change the penalty from \( \intop \left(\frac{\partial f(x,\lambda)}{\partial x}\right)^2 dx \) to \(">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2016/01/25/the-kernel-density-estimator-minimizes-the/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="The kernel density estimator minimizes the regularized Tsallis score">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/2016/01/25/the-kernel-density-estimator-minimizes-the/">
+  <meta property="og:description" content="The kernel density estimator (KDE) is a simple and popular tool for nonparametric density estimation. In one-dimension it is given by\[ \hat{p}_{KDE}(x) = \frac{1}{Nh} \sum_{i=1}^NK\left(\frac{x-X_i}{h}\right). \]\(K\) is a kernel (let’s say a variance 1 density for simplicity). It has a simple closed form, and there is extensive literature on theoretical justifications for KDE. One conceptual difficulty with KDE is that it is not represented as a solution to an optimization problem. Most statistics and ML algorithms, from PCA to SVM to k-means are either formulated as an optimization or may be alternatively formulated as the solution to one. For me, this gives me better intuition, and often provides a decision-theoretic justification for the problem. For example, the popular ML algorithm AdaBoost, the first boosting algorithm, benefited from new insights and extensions when it was discovered that it is essentially a greedy algorithm for optimizing the exponential classification loss.A few years ago I came across the paper What do Kernel Density Estimators Optimize? by Koenker et al. It has some interesting connections between the heat equation and KDEs, but the theorem I find most interesting is the following:Theorem 1: Let \(E_n[\cdot]\) denote the expectation operator with respect to the empirical distribution of a sample \(X_1,\ldots,X_N\). The solution to\[\min_f \left\{ -\mathbb{E}_n[f(x,\lambda)]+ \frac{1}{2} \intop f(x,\lambda)^2 dx +\frac{\lambda}{2} \intop \left(\frac{\partial f(x,\lambda)}{\partial x}\right)^2 dx \right\}\]is given by\[ \hat{p}(x) = \frac{1}{2\sqrt{\lambda n}} \sum_{i=1}^N \exp \{ -\mid x-X_i \mid /\sqrt{\lambda} \}. \]This is precisely the KDE with a Laplace kernel. In section 4 of the paper, the authors show that by changing the third term in the optimization to a different penalty, the solution is a KDE with a different choice of kernel. Like with other kernel methods such as kernel SVM , each kernel corresponds to a norm in a reproducing kernel Hilbert space. Changing the penalty term to that particular norm will result in a kernel estimator with the corresponding kernel for that RKHS. For example, we could change the penalty from \( \intop \left(\frac{\partial f(x,\lambda)}{\partial x}\right)^2 dx \) to \(">
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="geb5101h">
+  <meta name="twitter:title" content="The kernel density estimator minimizes the regularized Tsallis score">
+  <meta name="twitter:description" content="The kernel density estimator (KDE) is a simple and popular tool for nonparametric density estimation. In one-dimension it is given by\[ \hat{p}_{KDE}(x) = \frac{1}{Nh} \sum_{i=1}^NK\left(\frac{x-X_...">
+  
+    <meta name="twitter:creator" content="geb5101h">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+=======
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>The kernel density estimator minimizes the regularized Tsallis score | Eric Janofsky</title>
 <meta name="generator" content="Jekyll v3.8.6" />
@@ -32,6 +111,7 @@
 
         <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
       </nav></div>
+>>>>>>> origin/master:_site/2016/01/25/the-kernel-density-estimator-minimizes-the.html
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">

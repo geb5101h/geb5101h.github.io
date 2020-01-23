@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>A CLT For the Differential entropy of high-dimensional Gaussian Distributions</title>
+  <meta name="description" content="In graduate school most of my research was broadly in the area of multivariate analysis, of which covariance estimation is an important subject. I gave a seminar talk on this paper when I was in grad school. Often results in random matrix theory can be quite complicated, but the proofs for this problem are surprisingly elegant.The differential entropy is defined for a density \(p\) as\[ H(p) = -\mathbb{E}_p[\log p(X)] . \]For a \(D-\)dimensional Gaussian \(N(\mu,\Sigma)\), this is given by the formula\[ H(p) = \frac{D}{2}+\frac{D\log (2\pi)}{2} +\frac{\log \mid \Sigma \mid}{2},\]where \( \mid \cdot \mid\) denotes the determinant. So for the Gaussian problem, estimating entropy amounts to estimating the log-determinant of the covariance matrix. Note that one representation for the log-determinant is as the sum of the log-eigenvalues:\[ \log \mid \hat{\Sigma} \mid = \sum_i \log \lambda_i .\]Since the determinant depends on all of the eigenvalues of the random matrix, which are generally dependent, we might expect getting a limiting distribution would be difficult. In fact, we can derive a relatively simple finite-sample expression for the log-det, which naturally leads to a CLT. The determinant and log-determinant of a Gaussian matrix appear frequently in multivariate analysis, such as multivariate ANOVA for comparing two multivariate samples and quadratic discriminant analysis, which is a generative method for classification.The sample covariance for a sample of i.i.d. random Gaussian vectors \(X_1,\ldots,X_N\) is given by\[ \hat{\Sigma} = \frac{1}{N} \sum_{i=1}^N (X_i - \bar{X})(X_i - \bar{X})^\top. \]Our estimator of the log-determinant of the population covariance is simply the log-determinant of the sample covariance:\[\hat{T} = \log \mid \hat{\Sigma} \mid.\]The main theorem of the paper derives a central limit theorem for the log-determinant of the sample covariance matrixTheorem 1: Suppose that \(D\leq N\). Then the log-determinant of the sample covariance satisfies as \(N\rightarrow \infty\),\[ \frac{\log \mid \hat{\Sigma}\mid - \tau_{N,D} - \log \mid \Sigma \mid}{\sigma_{N,D}} \rightarrow N(0,1), \]where \(\tau_{N,D} = \sum_{k=1}^D \left(\psi(\frac{N-k+1}{2}) - \log(\frac{N}{2})\right) \), \(\psi\) is the digamma function, and \(\sigma_{N,D}^2=\sum_{k=1}^D \frac{1}{N-k+1}\).CommentsThe first interesting observation is the bias to the log-det sample covariance. When \(D\) is fixed as \(N\) grows, the bias disappears asymptotically. In particular, if \(D\) is fixed, the bias and standard deviation are given by\[\begin{array}{ll} \tau_{N,D} = \frac{D(D+1)}{2N}, &amp;amp;&amp;amp; \sigma_{N,D} = \sqrt{2D/N} \end{array}. \]Proof (Sketch)Note that \(\hat{\Sigma}\) has the same distribution as a sum \(\frac{1}{N}\sum_{i} Z_iZ_i^\top\), where \(Z_i\) are i.i.d. \(N(0,\Sigma)\). So we have\[\begin{array}{ll} \log \mid \hat{\Sigma}\mid - \log \mid \Sigma \mid &amp;amp;=&amp;amp; \log \mid \Sigma^{-&amp;frac12;}\hat{\Sigma}\Sigma^{-&amp;frac12;}  \mid \\ &amp;amp;=&amp;amp; \log \det \mid \frac{1}{N}\sum_i Y_i Y_i^\top \mid, \\ &amp;amp;=&amp;amp; \log \det \hat{I} \end{array}\]where \(Y_i \sim N(0,1)\) and \(\hat{I} = \sum_i Y_i Y_i^\top \). Using the Bartlett decomposition, we can Cholesky factorize \(\hat{I}\) by\[ \hat{I} = AA^\top, \]where \(A\) is a lower-triangular matrix with independent random entries. Since the Cholesky factor is triangular, it’s determinant is the product of the diagonals, and \(\mid \hat{I} \mid = \mid A\mid ^2\), so the log-determinant of \(\hat{I}\) will be a particular sum of i.i.d. random variables. In particular, it may be expressed as a particular sum of independent log-chi-square distributions, given by\[ \log \det (N \hat{I}) \sim \sum_{i=1}^D \log (\chi_{N-i+1}^2). \]Finding the particular forms of the bias and standard deviation of the estimator for the different regimes requires computing the expected value and variance of this random variable, which you can read in Section 5.1.Theorem 2In addition to a CLT, the authors derive the (non-asymptotic) risk of this estimator with respect to squared-error loss.If \(D \leq N\), the estimator satisfies\[ \mathbb{E}[(\hat{T}-\log \mid \Sigma\mid)^2] \leq -2\log(1-D/N)+\frac{10D}{3N(N-D)}. \]The paper has some interesting insights on the risk for this problem. If \(D/N\rightarrow 0\), then our estimator asymptotically achieves the minimax risk both in rate and in constant, which is \(2D/N\): it is asymptotically optimal in the minimax sense. If \(D/N\rightarrow r\in (0,1]\), the minimax risk for this problem is non-vanishing, so it is not possible to consistently estimate the log-determinant.Finally, a surprising result. We may think that we can improve these results in the high-dimensional setting if we add some constraints on the form of \(\Sigma\), and then design a specialized estimate of \(\Sigma\) for that class. There have been many such considerations in the literature:such as assuming sparsity of \(\Sigma\), or sparsity of \(\Sigma^{-1}\).Theorem 5Suppose \(\Sigma\) belongs to the collection of bounded diagonal matrices. Then the minimax risk is lower bounded by \(c D/N\), where \(0&amp;lt;c\leq 2\).Since any class of covariance matrices of interest includes bounded diagonal matrices as a subset, we cannot hope to consistently estimate the log-det if \(D/N \not\rightarrow 0\). This is a disappointing result, because there is a huge literature on high-dimensional estimators for covariance matrices. While the estimates themselves may be consistent by some notion of risk, they cannot be “plugged-in” to estimate the log-det consistently. I have been to talks where it has been stated, “often we are primarily interested in the high-dimensional covariance matrix as an input to something else, like a QDA classifier”, but the theory suggests this is misguided.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2016/02/11/a-clt-for-the-differential-entropy-of/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="A CLT For the Differential entropy of high-dimensional Gaussian Distributions">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/2016/02/11/a-clt-for-the-differential-entropy-of/">
+  <meta property="og:description" content="In graduate school most of my research was broadly in the area of multivariate analysis, of which covariance estimation is an important subject. I gave a seminar talk on this paper when I was in grad school. Often results in random matrix theory can be quite complicated, but the proofs for this problem are surprisingly elegant.The differential entropy is defined for a density \(p\) as\[ H(p) = -\mathbb{E}_p[\log p(X)] . \]For a \(D-\)dimensional Gaussian \(N(\mu,\Sigma)\), this is given by the formula\[ H(p) = \frac{D}{2}+\frac{D\log (2\pi)}{2} +\frac{\log \mid \Sigma \mid}{2},\]where \( \mid \cdot \mid\) denotes the determinant. So for the Gaussian problem, estimating entropy amounts to estimating the log-determinant of the covariance matrix. Note that one representation for the log-determinant is as the sum of the log-eigenvalues:\[ \log \mid \hat{\Sigma} \mid = \sum_i \log \lambda_i .\]Since the determinant depends on all of the eigenvalues of the random matrix, which are generally dependent, we might expect getting a limiting distribution would be difficult. In fact, we can derive a relatively simple finite-sample expression for the log-det, which naturally leads to a CLT. The determinant and log-determinant of a Gaussian matrix appear frequently in multivariate analysis, such as multivariate ANOVA for comparing two multivariate samples and quadratic discriminant analysis, which is a generative method for classification.The sample covariance for a sample of i.i.d. random Gaussian vectors \(X_1,\ldots,X_N\) is given by\[ \hat{\Sigma} = \frac{1}{N} \sum_{i=1}^N (X_i - \bar{X})(X_i - \bar{X})^\top. \]Our estimator of the log-determinant of the population covariance is simply the log-determinant of the sample covariance:\[\hat{T} = \log \mid \hat{\Sigma} \mid.\]The main theorem of the paper derives a central limit theorem for the log-determinant of the sample covariance matrixTheorem 1: Suppose that \(D\leq N\). Then the log-determinant of the sample covariance satisfies as \(N\rightarrow \infty\),\[ \frac{\log \mid \hat{\Sigma}\mid - \tau_{N,D} - \log \mid \Sigma \mid}{\sigma_{N,D}} \rightarrow N(0,1), \]where \(\tau_{N,D} = \sum_{k=1}^D \left(\psi(\frac{N-k+1}{2}) - \log(\frac{N}{2})\right) \), \(\psi\) is the digamma function, and \(\sigma_{N,D}^2=\sum_{k=1}^D \frac{1}{N-k+1}\).CommentsThe first interesting observation is the bias to the log-det sample covariance. When \(D\) is fixed as \(N\) grows, the bias disappears asymptotically. In particular, if \(D\) is fixed, the bias and standard deviation are given by\[\begin{array}{ll} \tau_{N,D} = \frac{D(D+1)}{2N}, &amp;amp;&amp;amp; \sigma_{N,D} = \sqrt{2D/N} \end{array}. \]Proof (Sketch)Note that \(\hat{\Sigma}\) has the same distribution as a sum \(\frac{1}{N}\sum_{i} Z_iZ_i^\top\), where \(Z_i\) are i.i.d. \(N(0,\Sigma)\). So we have\[\begin{array}{ll} \log \mid \hat{\Sigma}\mid - \log \mid \Sigma \mid &amp;amp;=&amp;amp; \log \mid \Sigma^{-&amp;frac12;}\hat{\Sigma}\Sigma^{-&amp;frac12;}  \mid \\ &amp;amp;=&amp;amp; \log \det \mid \frac{1}{N}\sum_i Y_i Y_i^\top \mid, \\ &amp;amp;=&amp;amp; \log \det \hat{I} \end{array}\]where \(Y_i \sim N(0,1)\) and \(\hat{I} = \sum_i Y_i Y_i^\top \). Using the Bartlett decomposition, we can Cholesky factorize \(\hat{I}\) by\[ \hat{I} = AA^\top, \]where \(A\) is a lower-triangular matrix with independent random entries. Since the Cholesky factor is triangular, it’s determinant is the product of the diagonals, and \(\mid \hat{I} \mid = \mid A\mid ^2\), so the log-determinant of \(\hat{I}\) will be a particular sum of i.i.d. random variables. In particular, it may be expressed as a particular sum of independent log-chi-square distributions, given by\[ \log \det (N \hat{I}) \sim \sum_{i=1}^D \log (\chi_{N-i+1}^2). \]Finding the particular forms of the bias and standard deviation of the estimator for the different regimes requires computing the expected value and variance of this random variable, which you can read in Section 5.1.Theorem 2In addition to a CLT, the authors derive the (non-asymptotic) risk of this estimator with respect to squared-error loss.If \(D \leq N\), the estimator satisfies\[ \mathbb{E}[(\hat{T}-\log \mid \Sigma\mid)^2] \leq -2\log(1-D/N)+\frac{10D}{3N(N-D)}. \]The paper has some interesting insights on the risk for this problem. If \(D/N\rightarrow 0\), then our estimator asymptotically achieves the minimax risk both in rate and in constant, which is \(2D/N\): it is asymptotically optimal in the minimax sense. If \(D/N\rightarrow r\in (0,1]\), the minimax risk for this problem is non-vanishing, so it is not possible to consistently estimate the log-determinant.Finally, a surprising result. We may think that we can improve these results in the high-dimensional setting if we add some constraints on the form of \(\Sigma\), and then design a specialized estimate of \(\Sigma\) for that class. There have been many such considerations in the literature:such as assuming sparsity of \(\Sigma\), or sparsity of \(\Sigma^{-1}\).Theorem 5Suppose \(\Sigma\) belongs to the collection of bounded diagonal matrices. Then the minimax risk is lower bounded by \(c D/N\), where \(0&amp;lt;c\leq 2\).Since any class of covariance matrices of interest includes bounded diagonal matrices as a subset, we cannot hope to consistently estimate the log-det if \(D/N \not\rightarrow 0\). This is a disappointing result, because there is a huge literature on high-dimensional estimators for covariance matrices. While the estimates themselves may be consistent by some notion of risk, they cannot be “plugged-in” to estimate the log-det consistently. I have been to talks where it has been stated, “often we are primarily interested in the high-dimensional covariance matrix as an input to something else, like a QDA classifier”, but the theory suggests this is misguided.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="geb5101h">
+  <meta name="twitter:title" content="A CLT For the Differential entropy of high-dimensional Gaussian Dis...">
+  <meta name="twitter:description" content="In graduate school most of my research was broadly in the area of multivariate analysis, of which covariance estimation is an important subject. I gave a seminar talk on this paper when I was in gr...">
+  
+    <meta name="twitter:creator" content="geb5101h">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+       <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+      <h1 class="post-title" itemprop="name headline">A CLT For the Differential entropy of high-dimensional Gaussian Distributions</h1>
+    
+    <p class="post-meta"><time datetime="2016-02-11T15:01:40+00:00" itemprop="datePublished">Feb 11, 2016</time>
+
+ •
+  
+    
+    
+      
+    
+      
+        <a href="/tags/central-limit-theorem/">central-limit-theorem</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>In graduate school most of my research was broadly in the area of multivariate analysis, of which covariance estimation is an important subject. I gave a seminar talk on <a href="http://arxiv.org/pdf/1309.0482.pdf">this</a> paper when I was in grad school. Often results in random matrix theory can be quite complicated, but the proofs for this problem are surprisingly elegant.</p><p>The differential entropy is defined for a density \(p\) as</p><p>\[ H(p) = -\mathbb{E}_p[\log p(X)] . \]</p><p>For a \(D-\)dimensional Gaussian \(N(\mu,\Sigma)\), this is given by the formula</p><p>\[ H(p) = \frac{D}{2}+\frac{D\log (2\pi)}{2} +\frac{\log \mid \Sigma \mid}{2},\]</p><p>where \( \mid \cdot \mid\) denotes the determinant. So for the Gaussian problem, estimating entropy amounts to estimating the log-determinant of the covariance matrix. Note that one representation for the log-determinant is as the sum of the log-eigenvalues:</p><p>\[ \log \mid \hat{\Sigma} \mid = \sum_i \log \lambda_i .\]</p><p>Since the determinant depends on <i>all </i>of the eigenvalues of the random matrix, which are generally dependent, we might expect getting a limiting distribution would be difficult. In fact, we can derive a relatively simple <i>finite-sample</i> expression for the log-det, which naturally leads to a CLT. </p><p>The determinant and log-determinant of a Gaussian matrix appear frequently in multivariate analysis, such as <a href="https://en.wikipedia.org/wiki/Multivariate_analysis_of_variance">multivariate ANOVA</a> for comparing two multivariate samples and <a href="https://en.wikipedia.org/wiki/Quadratic_classifier#Quadratic_discriminant_analysis">quadratic discriminant analysis</a>, which is a generative method for classification.<br/></p><p>The sample covariance for a sample of i.i.d. random Gaussian vectors \(X_1,\ldots,X_N\) is given by</p><p>\[ \hat{\Sigma} = \frac{1}{N} \sum_{i=1}^N (X_i - \bar{X})(X_i - \bar{X})^\top. \]</p><p>Our estimator of the log-determinant of the population covariance is simply the log-determinant of the sample covariance:</p><p>\[\hat{T} = \log \mid \hat{\Sigma} \mid.\]</p><p>The main theorem of the paper derives a central limit theorem for the log-determinant of the sample covariance matrix</p><p><b>Theorem 1</b>: </p><p>Suppose that \(D\leq N\). Then the log-determinant of the sample covariance satisfies as \(N\rightarrow \infty\),</p><p>\[ \frac{\log \mid \hat{\Sigma}\mid - \tau_{N,D} - \log \mid \Sigma \mid}{\sigma_{N,D}} \rightarrow N(0,1), \]</p><p>where \(\tau_{N,D} = \sum_{k=1}^D \left(\psi(\frac{N-k+1}{2}) - \log(\frac{N}{2})\right) \), \(\psi\) is the digamma function, and \(\sigma_{N,D}^2=\sum_{k=1}^D \frac{1}{N-k+1}\).</p><p><b>Comments</b></p><p>The first interesting observation is the bias to the log-det sample covariance. When \(D\) is fixed as \(N\) grows, the bias disappears asymptotically. In particular, if \(D\) is fixed, the bias and standard deviation are given by</p><p>\[\begin{array}{ll} \tau_{N,D} = \frac{D(D+1)}{2N}, &amp;&amp; \sigma_{N,D} = \sqrt{2D/N} \end{array}. \]</p><p><b>Proof (Sketch)</b></p><p>Note that \(\hat{\Sigma}\) has the same distribution as a sum \(\frac{1}{N}\sum_{i} Z_iZ_i^\top\), where \(Z_i\) are i.i.d. \(N(0,\Sigma)\). So we have</p><p>\[\begin{array}{ll} \log \mid \hat{\Sigma}\mid - \log \mid \Sigma \mid &amp;=&amp; \log \mid \Sigma^{-&frac12;}\hat{\Sigma}\Sigma^{-&frac12;}  \mid \\ &amp;=&amp; \log \det \mid \frac{1}{N}\sum_i Y_i Y_i^\top \mid, \\ &amp;=&amp; \log \det \hat{I} \end{array}\]</p><p>where \(Y_i \sim N(0,1)\) and \(\hat{I} = \sum_i Y_i Y_i^\top \). Using the <a href="https://en.wikipedia.org/wiki/Wishart_distribution#Bartlett_decomposition">Bartlett decomposition</a>, we can Cholesky factorize \(\hat{I}\) by</p><p>\[ \hat{I} = AA^\top, \]</p><p>where \(A\) is a lower-triangular matrix with independent random entries. Since the Cholesky factor is triangular, it’s determinant is the product of the diagonals, and \(\mid \hat{I} \mid = \mid A\mid ^2\), so the log-determinant of \(\hat{I}\) will be a particular sum of i.i.d. random variables. In particular, it may be expressed as a particular sum of independent log-chi-square distributions, given by</p><p>\[ \log \det (N \hat{I}) \sim \sum_{i=1}^D \log (\chi_{N-i+1}^2). \]</p><p>Finding the particular forms of the bias and standard deviation of the estimator for the different regimes requires computing the expected value and variance of this random variable, which you can read in Section 5.1.</p><p><b>Theorem 2</b></p><p>In addition to a CLT, the authors derive the (non-asymptotic) risk of this estimator with respect to squared-error loss.</p><p>If \(D \leq N\), the estimator satisfies</p><p>\[ \mathbb{E}[(\hat{T}-\log \mid \Sigma\mid)^2] \leq -2\log(1-D/N)+\frac{10D}{3N(N-D)}. \]</p><p>The paper has some interesting insights on the risk for this problem. If \(D/N\rightarrow 0\), then our estimator asymptotically achieves the <i>minimax risk</i> both in rate and in constant, which is \(2D/N\): it is asymptotically optimal in the minimax sense. If \(D/N\rightarrow r\in (0,1]\), the minimax risk for this problem is non-vanishing, so it is not possible to consistently estimate the log-determinant.</p><p>Finally, a surprising result. We may think that we can improve these results in the high-dimensional setting if we add some constraints on the form of \(\Sigma\), and then design a specialized estimate of \(\Sigma\) for that class. There have been many such considerations in the literature:such as assuming <a href="http://projecteuclid.org/euclid.aos/1231165180">sparsity </a>of \(\Sigma\), or <a href="http://projecteuclid.org/euclid.ejs/1214491853">sparsity </a>of \(\Sigma^{-1}\).</p><p><b>Theorem 5</b></p><p>Suppose \(\Sigma\) belongs to the collection of bounded diagonal matrices. Then the minimax risk is lower bounded by \(c D/N\), where \(0&lt;c\leq 2\).</p><p>Since any class of covariance matrices of interest includes bounded diagonal matrices as a subset, we cannot hope to consistently estimate the log-det if \(D/N \not\rightarrow 0\). This is a disappointing result, because there is a huge literature on high-dimensional estimators for covariance matrices. While the estimates themselves may be consistent by some notion of risk, they cannot be “plugged-in” to estimate the log-det consistently. </p><p>I have been to talks where it has been stated, “often we are primarily interested in the high-dimensional covariance matrix as an input to something else, like a QDA classifier”, but the theory suggests this is misguided.</p>
+
+  </div>
+
+  
+
+</article>
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Eric Janofsky - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

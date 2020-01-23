@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Eric Janofsky</title>
+  <meta name="description" content="">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/posts/2/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Eric Janofsky">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/posts/2/">
+  <meta property="og:description" content="">
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="geb5101h">
+  <meta name="twitter:title" content="Eric Janofsky">
+  <meta name="twitter:description" content="">
+  
+    <meta name="twitter:creator" content="geb5101h">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  
+
+  
+
+  <ul class="post-list">
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/25/an-anti-central-limit-theorem/">An anti-central limit theorem</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 25, 2016
+            
+              
+
+ •
+  
+    
+    
+      
+    
+      
+        <a href="/tags/central-limit-theorem/">central-limit-theorem</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:</p><p>\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]</p><p>Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.</p><p>The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density</p><p>\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]</p><p>It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.</p><p>A surprising fact is there are distributions where the sample mean gets <i>worse </i>as an estimate of location as the number of samples increases.</p><p>Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function</p><p>\[ F(y) = 2\left(1-\Phi\left(\frac{1}{\sqrt{y}}\right)\right), \]</p><p>where \(\Phi\) is the standard normal c.d.f.</p><p>Define \(F_a(y) = F(y/a)\) to be the scale family of densities for \(F\). Consider i.i.d. \(Y_1,Y_2\sim F=F_1\). It is possible to verify that the convolution \(Y_1+Y_2 \sim F_2\) (I will leave that as an exercise).</p><p>What does this tell us? Consider the probability</p><p>\[ P\left(\frac{Y_1+Y_2}{4} \leq y\right)  = 2 \left(1 - \Phi\left(\frac{2}{(4y)^{&frac12;}}\right) \right)= F_1(y).\]</p><p>Thus, the law of the sample mean with two samples has the same law as <i>twice</i> any of the individual samples.</p><p>In general, we get that the sample mean has the same law as a sample <i>scaled by the number of samples</i>:<br/></p><p>\[ \bar{Y} \overset{D}{=} N Y_1. \]</p><p>Instead of the error decreasing, the the error of the sample mean in estimating the location <i>increases at a rate of \(O(N)\) </i>with the number of samples!</p><p>Postscript: This distribution is called the <a href="https://en.wikipedia.org/wiki/L%C3%A9vy_distribution">Lévy</a> distribution and the unusual behavior of the sample mean (for Cauchy as well) is described by the <a href="https://en.wikipedia.org/wiki/Stable_distribution#A_generalized_central_limit_theorem">generalized central limit theorem</a>. The Lévy, Cauchy and Gaussian distribution are all <i>stable </i>distributions, which means the families are each closed under averaging. For the Gaussian family, the law of the sample mean follows \(\bar{X}\overset{D}{=} N^{-&frac12;} X_1\).</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/24/a-random-variable-is-not-uniquely-determined-by/">A random variable is not uniquely determined by its moments</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 24, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>The <i>moments </i>of a random variable \(X\) are given by \(\mathbb{E}[X^n]\), for all integers \(n\geq 1\). One fascinating fact I first learned while studying distribution theory is that the moment sequence does not always uniquely determine a distribution.</p><p>Consider \(X\sim logNormal(0,1)\), that is, \(log(X)\) follows a standard normal distribution, and let the density of \(X\) be \(f(x)\). The moments of \(X\) exist and have the closed form</p><p>\[ m_i := \mathbb{E}[X^i] = e^{i^2/2}. \]</p><p>Consider the density</p><p>\[ f_a(x) = f(x)(1+\sin(2\pi\log(x))), \,\,\, x\geq 0. \]</p><p>Then \(f,f_a\) have the same moments. To prove this, it’s sufficient to show that for each \(i=1,2,\ldots\),</p><p>\[ \intop_{0}^\infty x^i f(x) \sin(2\pi\log(x)) dx =0 .\]</p><p>This can be verified by applying the change-of-variables \(y=\log x\) to the integral and showing the resulting integral is over an odd function on the real line.</p><figure data-orig-width="534" data-orig-height="443" class="tmblr-full"><img src="https://66.media.tumblr.com/b4bf1c6bdbb8c9b3cd2d59362a35061f/tumblr_inline_o1grspsXys1tlyjch_540.png" alt="image" data-orig-width="534" data-orig-height="443"/></figure><p>Figure 1: Two densities with the same moments</p><p><b>When do the moments determine the distribution?</b></p><p>One sufficient condition for moments uniquely determining the distribution is the <i>Carleman condition</i>:</p><p>\[ \sum_{i=1}^\infty m_{2i}^{-1/(2i)} = \infty. \]</p><p>You can verify that the lognormal distribution has moments which grow too quickly for this Condition to hold.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/17/the-sample-mean-is-a-sub-optimal-estimate-of-the/">The sample mean is a sub-optimal estimate of the population mean</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 17, 2016
+            
+              
+
+ •
+  
+    
+    
+      
+        <a href="/tags/statistics/">statistics</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>It may be surprising that the sample mean is not usually the best estimate of the population mean. It’s well known that when the data is Gaussian, the sample mean is the <i>UMVUE</i>, or the uniformly minimum variance unbiased estimator. The UMVUE has the smallest variance among all unbiased estimators for <i>any </i>choice of the unknown parameter \( \theta \).  The sample mean is always unbiased (when the population mean exists) but isn’t generally minimum variance, and in some cases can have a much higher variance than optimal. This general result was first discovered by Kagan, Linnik and Rao (1965). This derivation comes from Székely et al., 1986.</p><p>Let \(F\) be a mean-zero, finite variance distribution function, and let \(F_{\theta}(x) = F(x-\theta)\). \(\theta\) is known as the <i>location parameter, </i>and in this setup it is the same as the mean of the distribution. We denote the density \( f(x) = F(x)’\).</p><p><b>An Example</b></p><p>Suppose that the base distribution is \(\text{Uniform(-1,1)}\), so that \( f(x) = \frac{1}{2} 1 \left\{x\in\{-1,1\}\right\}\). We have \(N\) independent and identically distributed samples from the distribution \(X_1,\ldots,X_N\). Consider the estimator</p><p>\( X^* = \frac{1}{2}(X_{(1)}+X_{(N)}),\)</p><p>that is, the average of the smallest and largest point in the sample. This is called the <i>midrange</i>. \(X^*\) may be shown to have variance</p><p>\( \text{var}(X^*) = \frac{2}{(N+1)(N+2)}, \)</p><p>while the sample mean \( \bar{X} \) has variance</p><p>\( \text{var}(\bar{X}) = \frac{1}{3N}, \)</p><p>which is substantially larger. \(X^*\) has variance of order \( O(N^{-2}) \), which is a whole order of magnitude smaller than that of the sample mean.</p><p><b>The main result</b></p><p>We will now construct a statistic which is <i>asymptotically UMVUE</i>: it is asymptotally unbiased and minimum variance among all estimators of the population mean for data arising from a particular location family.</p><p>Consider the estimator</p><p>\( X^* = \sum_{i=1}^N a_{i,N} X_{(i)}, \)</p><p>where \(X_{(i)}\) is the i-th order statistic of the sample, and \(a_{i,N}\) are weights which depend on the distribution.</p><p>Suppose the distribution function \(F\) has three derivatives, let \(f(x) = F(x)’\),  and define the functional<br/></p><p>\[ a(F(x)) = - \left(\left( A + Bx \right)\left(\log f(x)\right)’ \right)’, \]</p><p>where</p><p>\(\begin{align} A &amp;= \frac{\mu_2}{\mu_0\mu_2 - \mu_1^2},  &amp; B = \frac{\mu_1}{\mu_0\mu_2 - \mu_1^2},  \end{align}\)</p><p>and </p><p>\( \begin{align} \mu_0 &amp;= \intop \frac{f’(x)^2}{f(x)} dx,   &amp; \mu_1 = \intop x\frac{f’(x)^2}{f(x)} dx,\end{align}\)<br/></p><p>\(  \mu_2 = \intop x^2\frac{f’(x)^2}{f(x)} dx - 1, \)</p><p>then with the choice \(a_{i,N} = a(i/N)/N \), \(X^*\) is asymptotically UMVUE.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/14/clustering/">Clustering</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 14, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>Clustering is one of the fundamental tasks in unsupervised learning, but there are a huge diversity of approaches. There is <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means</a> , <a href="https://en.wikipedia.org/wiki/Mean_shift">mean-shift</a>,<a href="https://en.wikipedia.org/wiki/Hierarchical_clustering"> hierarchical clustering</a>,<a href="https://en.wikipedia.org/wiki/Mixture_model"> mixture models</a> and more. The reason for so many varied approaches is that clustering by itself is ill-defined. In this post I will focus on two methods, mean-shift and Gaussian mixture modeling, because they have a more “statistical” flavor, in that they can be related to modeling a probability distribution over the data. Despite their similarities, they are based on sometimes contradictory principles.</p><p><b>1. Mean-shift</b></p><p>Mean-shift clusters points by the modes of a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">nonparametric kernel density</a>. The kernel density estimator for data \(x_1,\ldots,x_N\) is</p><p>\(\hat{p}(x) =\frac{1}{nh^d} \sum_{i=1}^NK(\frac{\Vert x-x_i\Vert^2}{h}),\)</p><p>where \(K\) is a kernel function. You can imagine the kernel to be some density with variance one, such as a Gaussian density, with variability controlled by the bandwidth \(h\). In effect a kernel density is a smoothed histogram, a mixture of local densities at each datum. \(\hat{p}\) has some number of modes, let’s say \(p \). </p><p>The gradient of the density at a point \(x\) looks like</p><p>\( \nabla \hat{p}(x) = L(x)\cdot\left( \frac{ \sum_{i=1}^N x_i k(\frac{\Vert x-x_i\Vert^2}{h})}{\sum_{i=1}^n k(\frac{\Vert x-x_i\Vert^2}{h})} - x \right), \)</p><p>where \(L(x)\) is a positive function, \(k=K’\) and the second term is called the mean-shift, which we denote \(m(x)\). Any mode of \(\hat{p}\) will satisfy the fixed point \(m(x)=0\).</p><p>Mean-shift works as follows. Initialize \(w_1\) at some point. Then iterate the following until convergence:</p><p>\(w_t \leftarrow w_{t-1} + m(w_{t-1}).\)</p><p>Each iteration moves the point in an ascent direction of the density. Eventually it will converge to a fixed point, which is one of the modes of \(\hat{p}\). We do this for each data point, and we assign clusters based on which fixed point it converged to.</p><p>It’s well known that the kernel density is a consistent estimate of the true density for large sample size (and further, it’s modes are consistent as well). But there’s not a lot of understanding on guarantees for mean-shift itself. Also, density estimation is sensitive to bandwidth, and the number of modes can change for different choices of \(h\).</p><!-- more --><p><b>2. Mixture Models</b></p><p>Mixture models cluster based on a most probable assignment to a mixture component. It provides a generative interpretation for the data. It can do “soft clustering”, which means it provides not just the most probable cluster assignment, but the full probability vector (known as the responsibilities) for a datum belonging to all the clusters. In addition to clustering you also get a predictive density at no extra cost.</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/14/clustering/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="pagination">
+    
+
+    
+      <a class="next" href="/">Newer &raquo;</a>
+    
+  </div>
+
+
+
+</div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Eric Janofsky - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>An anti-central limit theorem</title>
+  <meta name="description" content="The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&amp;frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.A surprising fact is there are distributions where the sample mean gets worse as an estimate of location as the number of samples increases.Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function\[ F(y) = 2\left(1-\Phi\left(\frac{1}{\sqrt{y}}\right)\right), \]where \(\Phi\) is the standard normal c.d.f.Define \(F_a(y) = F(y/a)\) to be the scale family of densities for \(F\). Consider i.i.d. \(Y_1,Y_2\sim F=F_1\). It is possible to verify that the convolution \(Y_1+Y_2 \sim F_2\) (I will leave that as an exercise).What does this tell us? Consider the probability\[ P\left(\frac{Y_1+Y_2}{4} \leq y\right)  = 2 \left(1 - \Phi\left(\frac{2}{(4y)^{&amp;frac12;}}\right) \right)= F_1(y).\]Thus, the law of the sample mean with two samples has the same law as twice any of the individual samples.In general, we get that the sample mean has the same law as a sample scaled by the number of samples:\[ \bar{Y} \overset{D}{=} N Y_1. \]Instead of the error decreasing, the the error of the sample mean in estimating the location increases at a rate of \(O(N)\) with the number of samples!Postscript: This distribution is called the Lévy distribution and the unusual behavior of the sample mean (for Cauchy as well) is described by the generalized central limit theorem. The Lévy, Cauchy and Gaussian distribution are all stable distributions, which means the families are each closed under averaging. For the Gaussian family, the law of the sample mean follows \(\bar{X}\overset{D}{=} N^{-&amp;frac12;} X_1\).">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2016/01/25/an-anti-central-limit-theorem/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="An anti-central limit theorem">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/2016/01/25/an-anti-central-limit-theorem/">
+  <meta property="og:description" content="The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&amp;frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.A surprising fact is there are distributions where the sample mean gets worse as an estimate of location as the number of samples increases.Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function\[ F(y) = 2\left(1-\Phi\left(\frac{1}{\sqrt{y}}\right)\right), \]where \(\Phi\) is the standard normal c.d.f.Define \(F_a(y) = F(y/a)\) to be the scale family of densities for \(F\). Consider i.i.d. \(Y_1,Y_2\sim F=F_1\). It is possible to verify that the convolution \(Y_1+Y_2 \sim F_2\) (I will leave that as an exercise).What does this tell us? Consider the probability\[ P\left(\frac{Y_1+Y_2}{4} \leq y\right)  = 2 \left(1 - \Phi\left(\frac{2}{(4y)^{&amp;frac12;}}\right) \right)= F_1(y).\]Thus, the law of the sample mean with two samples has the same law as twice any of the individual samples.In general, we get that the sample mean has the same law as a sample scaled by the number of samples:\[ \bar{Y} \overset{D}{=} N Y_1. \]Instead of the error decreasing, the the error of the sample mean in estimating the location increases at a rate of \(O(N)\) with the number of samples!Postscript: This distribution is called the Lévy distribution and the unusual behavior of the sample mean (for Cauchy as well) is described by the generalized central limit theorem. The Lévy, Cauchy and Gaussian distribution are all stable distributions, which means the families are each closed under averaging. For the Gaussian family, the law of the sample mean follows \(\bar{X}\overset{D}{=} N^{-&amp;frac12;} X_1\).">
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="geb5101h">
+  <meta name="twitter:title" content="An anti-central limit theorem">
+  <meta name="twitter:description" content="The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standa...">
+  
+    <meta name="twitter:creator" content="geb5101h">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+       <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+      <h1 class="post-title" itemprop="name headline">An anti-central limit theorem</h1>
+    
+    <p class="post-meta"><time datetime="2016-01-25T02:54:16+00:00" itemprop="datePublished">Jan 25, 2016</time>
+
+ •
+  
+    
+    
+      
+    
+      
+        <a href="/tags/central-limit-theorem/">central-limit-theorem</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:</p><p>\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]</p><p>Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.</p><p>The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density</p><p>\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]</p><p>It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.</p><p>A surprising fact is there are distributions where the sample mean gets <i>worse </i>as an estimate of location as the number of samples increases.</p><p>Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function</p><p>\[ F(y) = 2\left(1-\Phi\left(\frac{1}{\sqrt{y}}\right)\right), \]</p><p>where \(\Phi\) is the standard normal c.d.f.</p><p>Define \(F_a(y) = F(y/a)\) to be the scale family of densities for \(F\). Consider i.i.d. \(Y_1,Y_2\sim F=F_1\). It is possible to verify that the convolution \(Y_1+Y_2 \sim F_2\) (I will leave that as an exercise).</p><p>What does this tell us? Consider the probability</p><p>\[ P\left(\frac{Y_1+Y_2}{4} \leq y\right)  = 2 \left(1 - \Phi\left(\frac{2}{(4y)^{&frac12;}}\right) \right)= F_1(y).\]</p><p>Thus, the law of the sample mean with two samples has the same law as <i>twice</i> any of the individual samples.</p><p>In general, we get that the sample mean has the same law as a sample <i>scaled by the number of samples</i>:<br/></p><p>\[ \bar{Y} \overset{D}{=} N Y_1. \]</p><p>Instead of the error decreasing, the the error of the sample mean in estimating the location <i>increases at a rate of \(O(N)\) </i>with the number of samples!</p><p>Postscript: This distribution is called the <a href="https://en.wikipedia.org/wiki/L%C3%A9vy_distribution">Lévy</a> distribution and the unusual behavior of the sample mean (for Cauchy as well) is described by the <a href="https://en.wikipedia.org/wiki/Stable_distribution#A_generalized_central_limit_theorem">generalized central limit theorem</a>. The Lévy, Cauchy and Gaussian distribution are all <i>stable </i>distributions, which means the families are each closed under averaging. For the Gaussian family, the law of the sample mean follows \(\bar{X}\overset{D}{=} N^{-&frac12;} X_1\).</p>
+
+  </div>
+
+  
+
+</article>
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Eric Janofsky - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
