@@ -29,11 +29,9 @@
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="geb5101h">
+  
   <meta name="twitter:title" content="Spurious correlation, unit roots and cointegration">
   <meta name="twitter:description" content="I learned about the spurious regression problem during a course at the Booth school of business. It’s well known among econometricians because it is in the classic text by Hamilton but I don’t thin...">
-  
-    <meta name="twitter:creator" content="geb5101h">
   
   
 
@@ -86,43 +84,15 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-       <script type="text/javascript" async
+    <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-    
-      <h1 class="post-title" itemprop="name headline">Spurious correlation, unit roots and cointegration</h1>
-    
-    <p class="post-meta"><time datetime="2016-03-01T15:01:51+00:00" itemprop="datePublished">Mar 1, 2016</time>
-
- •
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <a href="/tags/time-series/">time-series</a>
-      
-    
-      
-    
-  
-
-</p>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="post-content e-content" itemprop="articleBody">
     <p>I learned about the spurious regression problem during a course at the <a href="https://www.chicagobooth.edu/">Booth school of business</a>. It’s well known among econometricians because it is in the classic text by Hamilton but I don’t think it’s known more widely.</p><p>A first-order measure of association between two variables \(x,y\) is their correlation. Equivalently, we can fit a univariate linear regression to the data:</p><p>\[ y = \alpha + \beta x \]</p><p>If we have \(N\) observations that are independent, given a couple mild assumptions, we get a CLT:<br/></p><p>\[ \sqrt{N}(\hat{\beta}-\beta) \rightarrow N(0,\sigma_{y\mid x}^2/\sigma_x^2), \]</p><p>where \(\sigma_x^2 = \text{var}( x)\) and \(\sigma_{y\mid x}^2 = \text{var}( y-\alpha-\beta x)\).</p><p>We can test for association (\(\beta \not = 0\)) using a standard F-test.</p><p>The independent observation assumption is crucial. Without it, you can get very surprising and unusual behavior.</p><p>Consider observations of pairs \(x_t,y_t\), which are generated from random walks:</p><p>
 
 \[\begin{array}{ll}x_t &amp;=&amp; x_{t-1} + u_t, \\ y_t &amp;=&amp; y_{t-1} + w_t,  \end{array}\]
@@ -131,11 +101,7 @@
 
 As a consequence we can easily generate a simulation of two independent variables which the F-test says are <i>certainly</i> dependent!</p><figure data-orig-width="856" data-orig-height="780" class="tmblr-full"><img src="https://66.media.tumblr.com/e7e5b1242c938e8aae92f00b068b92af/tumblr_inline_o34etoj7a31tlyjch_540.png" alt="image" data-orig-width="856" data-orig-height="780"/></figure><p>Figure 2: Two independent random walks. n=100, \(R^2\)=0.69, F-test p-value &lt; 2.2e-16.</p><!-- more --><p><b>Cointegration</b></p><p>So what to do? It’s clear that an F-test is <i>certainly </i>the wrong thing to do to test association between two nonstationary time series, since the specificity of the test is asymptotically zero. A better approach is to test for cointegration.</p><p>Two processes are <i>cointegrated </i>if they are each marginally nonstationary (unit root) processes, and there exists a constant \(\gamma\) such that</p><p>\[ e_t = y_t -\gamma x_t \]</p><p>is stationary.</p><p>A classic example are bid/ask prices. The bid and ask are respectively the posted price for immediate sale or purchase by a market maker.  These prices generally differ&ndash; their difference is called the <i>spread</i>. But if they differ by too large an amount, someone else will inevitably enter the market to provide liquidity, and the spread will revert back towards zero. Thus the spread</p><p>\[ s_t = p_t^a - p_t ^b \]</p><p>should be a stationary process.</p><figure data-orig-width="663" data-orig-height="551" class="tmblr-full"><img src="https://66.media.tumblr.com/67bfd7663b709f47b78c7a8ce68799cb/tumblr_inline_o37mscGPQ51tlyjch_540.png" alt="image" data-orig-width="663" data-orig-height="551"/></figure><p>Figure 3: Bid/ask prices and the bid/ask spread for a stock</p><p>To test for coinegration, there are two possibilities:</p><p>1. If the constant \(\gamma\) is known (perhaps in the bid/ask scenario we are willing to assume \(\gamma \)= 1), compute the residual series \(e_t\) and perform the <a href="https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test">Dickey-Fuller test</a> for a unit root.</p><p>2. If the constant \(\gamma\) is unknown, estimate \(\hat{\gamma}\) with regression, and perform a special “augmented Dickey-Fuller test”.</p><figure data-orig-width="2080" data-orig-height="820" class="tmblr-full"><img src="https://66.media.tumblr.com/e9989cb1b3f9cef40686cec064955790/tumblr_inline_o3653vvOYM1tlyjch_540.png" alt="image" data-orig-width="2080" data-orig-height="820"/></figure><p>Figure 4: A spurious correlation</p><p><br/></p><p>[1] I won’t get into what a Brownian motion is, or what the integral over a Brownian motion is. You can look at the original derivation in the source.</p>
 
-  </div>
-
-  
-
-</article>
+  </div><a class="u-url" href="/2016/03/01/spurious-correlation-unit-roots-and-cointegration/" hidden></a>
 </article>
 
       </div>
@@ -148,7 +114,7 @@ As a consequence we can easily generate a simulation of two independent variable
     <p>
       
 
-&copy; Eric Janofsky - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+&copy;  - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
 
     </p>
 
