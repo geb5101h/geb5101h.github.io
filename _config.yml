@@ -23,7 +23,7 @@ jekyll-archives:
 # Outputting
 permalink: /:year/:month/:day/:title/
 paginate_path: /posts/:num/
-paginate: 5
+paginate: 3
 
 google_analytics: UA-156801543-1
 markdown: kramdown
