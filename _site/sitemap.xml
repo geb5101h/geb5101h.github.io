@@ -37,6 +37,10 @@
 <lastmod>2017-09-21T17:52:42-04:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2020/01/25/ReLU/</loc>
+<lastmod>2020-01-25T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -53,5 +57,15 @@
 </url>
 <url>
 <loc>http://localhost:4000/posts/2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts/3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts/4/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/assets/relu/functions.pdf</loc>
+<lastmod>2020-01-24T13:02:49-05:00</lastmod>
 </url>
 </urlset>

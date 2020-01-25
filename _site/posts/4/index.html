@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Eric Janofsky</title>
+  <meta name="description" content="">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/posts/4/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Eric Janofsky">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/posts/4/">
+  <meta property="og:description" content="">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Eric Janofsky">
+  <meta name="twitter:description" content="">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  
+
+  
+
+  <ul class="post-list">
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/13/clustering/">Clustering</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 13, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>Clustering is one of the fundamental tasks in unsupervised learning, but there are a huge diversity of approaches. There is <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means</a> , <a href="https://en.wikipedia.org/wiki/Mean_shift">mean-shift</a>,<a href="https://en.wikipedia.org/wiki/Hierarchical_clustering"> hierarchical clustering</a>,<a href="https://en.wikipedia.org/wiki/Mixture_model"> mixture models</a> and more. The reason for so many varied approaches is that clustering by itself is ill-defined. In this post I will focus on two methods, mean-shift and Gaussian mixture modeling, because they have a more “statistical” flavor, in that they can be related to modeling a probability distribution over the data. Despite their similarities, they are based on sometimes contradictory principles.</p><p><b>1. Mean-shift</b></p><p>Mean-shift clusters points by the modes of a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">nonparametric kernel density</a>. The kernel density estimator for data \(x_1,\ldots,x_N\) is</p><p>\(\hat{p}(x) =\frac{1}{nh^d} \sum_{i=1}^NK(\frac{\Vert x-x_i\Vert^2}{h}),\)</p><p>where \(K\) is a kernel function. You can imagine the kernel to be some density with variance one, such as a Gaussian density, with variability controlled by the bandwidth \(h\). In effect a kernel density is a smoothed histogram, a mixture of local densities at each datum. \(\hat{p}\) has some number of modes, let’s say \(p \). </p><p>The gradient of the density at a point \(x\) looks like</p><p>\( \nabla \hat{p}(x) = L(x)\cdot\left( \frac{ \sum_{i=1}^N x_i k(\frac{\Vert x-x_i\Vert^2}{h})}{\sum_{i=1}^n k(\frac{\Vert x-x_i\Vert^2}{h})} - x \right), \)</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/13/clustering/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="pagination">
+    
+
+    
+      <a class="next" href="/posts/3/">Newer &raquo;</a>
+    
+  </div>
+
+
+
+</div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy;  - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

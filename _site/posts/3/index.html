@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Eric Janofsky</title>
+  <meta name="description" content="">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/posts/3/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Eric Janofsky" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Eric Janofsky">
+  <meta property="og:site_name" content="Eric Janofsky">
+  <meta property="og:url" content="http://localhost:4000/posts/3/">
+  <meta property="og:description" content="">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Eric Janofsky">
+  <meta name="twitter:description" content="">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-156801543-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Eric Janofsky</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/geb5101h">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  
+
+  
+
+  <ul class="post-list">
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/24/an-anti-central-limit-theorem/">An anti-central limit theorem</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 24, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:</p><p>\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]</p><p>Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.</p><p>The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density</p><p>\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]</p><p>It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.</p><p>A surprising fact is there are distributions where the sample mean gets <i>worse </i>as an estimate of location as the number of samples increases.</p><p>Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/24/an-anti-central-limit-theorem/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/24/a-random-variable-is-not-uniquely-determined-by/">A random variable is not uniquely determined by its moments</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 24, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>The <i>moments </i>of a random variable \(X\) are given by \(\mathbb{E}[X^n]\), for all integers \(n\geq 1\). One fascinating fact I first learned while studying distribution theory is that the moment sequence does not always uniquely determine a distribution.</p><p>Consider \(X\sim logNormal(0,1)\), that is, \(log(X)\) follows a standard normal distribution, and let the density of \(X\) be \(f(x)\). The moments of \(X\) exist and have the closed form</p><p>\[ m_i := \mathbb{E}[X^i] = e^{i^2/2}. \]</p><p>Consider the density</p><p>\[ f_a(x) = f(x)(1+\sin(2\pi\log(x))), \,\,\, x\geq 0. \]</p><p>Then \(f,f_a\) have the same moments. To prove this, it’s sufficient to show that for each \(i=1,2,\ldots\),</p><p>\[ \intop_{0}^\infty x^i f(x) \sin(2\pi\log(x)) dx =0 .\]</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/24/a-random-variable-is-not-uniquely-determined-by/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2016/01/17/the-sample-mean-is-a-sub-optimal-estimate-of-the/">The sample mean is a sub-optimal estimate of the population mean</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 17, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>It may be surprising that the sample mean is not usually the best estimate of the population mean. It’s well known that when the data is Gaussian, the sample mean is the <i>UMVUE</i>, or the uniformly minimum variance unbiased estimator. The UMVUE has the smallest variance among all unbiased estimators for <i>any </i>choice of the unknown parameter \( \theta \).  The sample mean is always unbiased (when the population mean exists) but isn’t generally minimum variance, and in some cases can have a much higher variance than optimal. This general result was first discovered by Kagan, Linnik and Rao (1965). This derivation comes from Székely et al., 1986.</p><p>Let \(F\) be a mean-zero, finite variance distribution function, and let \(F_{\theta}(x) = F(x-\theta)\). \(\theta\) is known as the <i>location parameter, </i>and in this setup it is the same as the mean of the distribution. We denote the density \( f(x) = F(x)’\).</p><p><b>An Example</b></p><p>Suppose that the base distribution is \(\text{Uniform(-1,1)}\), so that \( f(x) = \frac{1}{2} 1 \left\{x\in\{-1,1\}\right\}\). We have \(N\) independent and identically distributed samples from the distribution \(X_1,\ldots,X_N\). Consider the estimator</p><p>\( X^* = \frac{1}{2}(X_{(1)}+X_{(N)}),\)</p><p>that is, the average of the smallest and largest point in the sample. This is called the <i>midrange</i>. \(X^*\) may be shown to have variance</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/17/the-sample-mean-is-a-sub-optimal-estimate-of-the/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="pagination">
+    
+      <a class="previous" href="/posts/4/">&laquo; Older</a>
+    
+
+    
+      <a class="next" href="/posts/2/">Newer &raquo;</a>
+    
+  </div>
+
+
+
+</div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy;  - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
