@@ -102,6 +102,39 @@
 </script>
           <h1 class="post-title">
             
+              <a class="post-link" href="/2016/01/24/an-anti-central-limit-theorem/">An anti-central limit theorem</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 24, 2016
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>The basic version of the central limit theorem says that for an i.i.d. sample from a distribution with finite variance \(\sigma^2\) and mean \(\mu\), the re-scaled sample mean converges to a standard normal distribution:</p><p>\[ \sqrt{N} (\bar{X} - \mu) \rightarrow Normal(0,\sigma^2). \]</p><p>Basically the CLT says that the error in the sample mean in estimating the location parameter decreases at a rate of \(O(N^{-&frac12;})\) with the sample size. The CLT is what makes statistical inference possible. Some parts of the above statement may be relaxed, but if you get rid of the assumption of finite variance, things can get weird.</p><p>The Cauchy distribution with location \(\mu\) and scale \(\sigma\) is a distribution on \((-\infty,\infty)\) with density</p><p>\[ f(x) = \frac{1}{\sigma\pi(1+(\frac{x-\mu}{\sigma})^2}. \]</p><p>It is well-known that the sample mean \(\bar{X}\) of an i.i.d. sample \(X_1,\ldots,X_N\) from a Cauchy distribution has the same law as a single sample, \(\bar{X}\overset{D}{=} X_1\). And so the sample mean does not improve as an estimate of the location as the number of samples increases.</p><p>A surprising fact is there are distributions where the sample mean gets <i>worse </i>as an estimate of location as the number of samples increases.</p><p>Let \(X\sim Normal(0,1)\), and let \(Y=\frac{1}{X^2}\). Applying a change of variables we find that \(Y\) has distribution function</p>
+
+
+        </div>
+        
+          <p class="post-continue">
+            <a href="/2016/01/24/an-anti-central-limit-theorem/">Read on &rarr;</a>
+          </p>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2016/01/24/a-random-variable-is-not-uniquely-determined-by/">A random variable is not uniquely determined by its moments</a>
             
           </h1>
@@ -158,43 +191,12 @@
         
       </li>
     
-      
-      
-
-      <li>
-        <header class="post-header">
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2016/01/13/clustering/">Clustering</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Jan 13, 2016
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>Clustering is one of the fundamental tasks in unsupervised learning, but there are a huge diversity of approaches. There is <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means</a> , <a href="https://en.wikipedia.org/wiki/Mean_shift">mean-shift</a>,<a href="https://en.wikipedia.org/wiki/Hierarchical_clustering"> hierarchical clustering</a>,<a href="https://en.wikipedia.org/wiki/Mixture_model"> mixture models</a> and more. The reason for so many varied approaches is that clustering by itself is ill-defined. In this post I will focus on two methods, mean-shift and Gaussian mixture modeling, because they have a more “statistical” flavor, in that they can be related to modeling a probability distribution over the data. Despite their similarities, they are based on sometimes contradictory principles.</p><p><b>1. Mean-shift</b></p><p>Mean-shift clusters points by the modes of a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">nonparametric kernel density</a>. The kernel density estimator for data \(x_1,\ldots,x_N\) is</p><p>\(\hat{p}(x) =\frac{1}{nh^d} \sum_{i=1}^NK(\frac{\Vert x-x_i\Vert^2}{h}),\)</p><p>where \(K\) is a kernel function. You can imagine the kernel to be some density with variance one, such as a Gaussian density, with variability controlled by the bandwidth \(h\). In effect a kernel density is a smoothed histogram, a mixture of local densities at each datum. \(\hat{p}\) has some number of modes, let’s say \(p \). </p><p>The gradient of the density at a point \(x\) looks like</p><p>\( \nabla \hat{p}(x) = L(x)\cdot\left( \frac{ \sum_{i=1}^N x_i k(\frac{\Vert x-x_i\Vert^2}{h})}{\sum_{i=1}^n k(\frac{\Vert x-x_i\Vert^2}{h})} - x \right), \)</p>
-
-
-        </div>
-        
-          <p class="post-continue">
-            <a href="/2016/01/13/clustering/">Read on &rarr;</a>
-          </p>
-        
-      </li>
-    
   </ul>
 
   
   <div class="pagination">
+    
+      <a class="previous" href="/posts/4/">&laquo; Older</a>
     
 
     
