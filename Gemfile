@@ -9,7 +9,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 3.5"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-#gem "jekyll-whiteglass"
+gem "jekyll-whiteglass"
 gem "minima", "~> 2.5"
 gem 'jekyll-theme-minimal', '~> 0.1.1'
 #gem 'jekyll-theme-primer', '~> 0.5.4'
