@@ -13,6 +13,7 @@ gem "jekyll-whiteglass"
 gem "minima", "~> 2.5"
 gem 'jekyll-theme-minimal', '~> 0.1.1'
 #gem 'jekyll-theme-primer', '~> 0.5.4'
+gem "kramdown-parser-gfm"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -28,6 +29,8 @@ install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
   gem "tzinfo", "~> 1.2"
   gem "tzinfo-data"
 end
+
+
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
