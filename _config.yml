@@ -25,7 +25,7 @@ permalink: /:year/:month/:day/:title/
 paginate_path: /posts/:num/
 paginate: 3
 
-google_analytics: UA-156801543-1
+google_analytics: G-F6TCD28Q7P
 markdown: kramdown
 mathjax: true
 title: Eric Janofsky
